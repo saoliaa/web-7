@@ -1,0 +1,1 @@
+go run projects/1_hello/main.go & go run projects/3_count/main.go & go run projects/2_query/main.go

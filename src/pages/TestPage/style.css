@@ -1,0 +1,18 @@
+.loader {
+    padding: 20px;
+    font-size: 2em;
+}
+h2{
+    font-family: Comic Sans MS, Comic Sans, cursive;
+    font-size: 2em;
+}
+button{
+    font-size: 1.2em;
+    background:#87CEFA;
+}
+.bl1{
+    margin-left: 10px;
+}
+.bl2{
+    margin-right: 10px;
+}

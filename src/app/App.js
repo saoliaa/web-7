@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import { TodoPage } from '../pages/TodoPage/TodoPage';
+import { TestPage } from '../pages/TestPage/TestPage';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from '../pages/Layout';
 import { AppContext } from './context';
@@ -13,29 +14,9 @@ const router = createBrowserRouter([
         // Корневая компонента по url: "/". Она отрисовывает лэйаут приложения,
         // куда подставляется контент странички
         path: '/',
-        element: <Layout />,
+        element: <TestPage/>
         // Вложенные роуты, которые будут подставляться в лэйаут
-        children: [
-            {
-                // Это свойство позволяет задать элемент по умолчанию для родительского роута
-                // То есть, если в адресной строке url будет "/", то отрисуется этот element
-                index: true,
-                element: <h1>Главная страница</h1>
-            },
-            {
-                path: '/login',
-                element: <h1>Логин</h1>
-            },
-            {
-                path: '/todos',
-                element: <TodoPage />,
-                index: true
-            },
-            {
-                path: '/register',
-                element: <h1>Регистрация</h1>
-            }
-        ]
+       
     },
     {
         // Другой корневой url-путь, который тоже может содержать лейаут, а может и нет
@@ -58,6 +39,7 @@ export class App extends Component {
 
     // Метод отрисовки компоненты
     render() {
+        // return this.state.user
         return (
             // Провайдинг контекста. Контекст работает по принципу шины. Через него компонента App
             // предоставляет данные дочерним компонентам. Использование контекста позволяет избежать такой проблемы
@@ -69,7 +51,7 @@ export class App extends Component {
            <AppContext.Provider value={{
                 user: this.state.user,
                 login: this.#login.bind(this),
-                logout: this.#logout.bind(this)
+                logout: this.#logout.bind(this),
             }}>
                 {/* // Компонента провайдинга роутера. Ее использование важно для работы маршрутизации приложения
                 // Чтобы роутер заработал, ему необходмо передатать объект конфигурации роутера в качестве пропса */}
